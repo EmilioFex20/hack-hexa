@@ -1,8 +1,24 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock } from "lucide-react";
+import Link from "next/link";
 
-export default function Hero() {
+export function Hero() {
+  const googleCalendarUrl =
+    "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+    "&text=" +
+    encodeURIComponent("HackHexa 2026") +
+    "&dates=" +
+    encodeURIComponent("20260409T080000/20260409T140000") +
+    "&details=" +
+    encodeURIComponent(
+      "HackHexa 2026 - Rompiendo esquemas y construyendo futuro. Para mujeres en la tecnología.",
+    ) +
+    "&location=" +
+    encodeURIComponent("Mexicali, Baja California") +
+    "&ctz=" +
+    encodeURIComponent("America/Tijuana");
+
   return (
     <section className="relative min-h-screen w-full overflow-hidden">
       {/* Imagen de fondo */}
@@ -33,48 +49,62 @@ export default function Hero() {
           </h1>
 
           {/* Subtítulo principal */}
-          <p className="mt-8 text-2xl font-light uppercase tracking-wide md:text-5xl">
+          <h2 className="mt-8 text-2xl font-light uppercase tracking-wide md:text-5xl">
             Rompiendo esquemas y construyendo futuro
-          </p>
+          </h2>
 
           {/* Subtexto */}
-          <p className="mt-6 text-lg font-light uppercase tracking-wide md:text-3xl">
+          <h3 className="mt-6 text-lg font-light uppercase tracking-wide md:text-3xl">
             Para mujeres en la tecnología
-          </p>
+          </h3>
 
           {/* Cards de fecha y hora */}
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button
-              variant="default"
-              size="lg"
-              className="flex gap-3 py-6 px-10"
+            <Link
+              href={googleCalendarUrl}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <span className="text-brand">
+              <Button
+                variant="default"
+                size="lg"
+                className="flex gap-3 py-6 px-10 transition hover:scale-105 hover:bg-brand hover:text-white hover:cursor-pointer"
+              >
                 <Calendar />
-              </span>
-              <span className="">9 de Abril, 2026</span>
-            </Button>
-            <Button
-              variant="default"
-              size="lg"
-              className="flex gap-3 py-6 px-10"
+                <time>9 de Abril, 2026</time>
+              </Button>
+            </Link>
+            <Link
+              href={googleCalendarUrl}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <span className="text-brand">
+              <Button
+                variant="default"
+                size="lg"
+                className="flex gap-3 py-6 px-10 transition hover:scale-105 hover:bg-brand hover:text-white hover:cursor-pointer"
+              >
                 <Clock />
-              </span>
-              <span className="font-semibold text-lg">8:00 AM - 2:00 PM</span>
-            </Button>
+                <time>8:00 AM - 2:00 PM</time>
+              </Button>
+            </Link>
           </div>
 
           {/* Botón */}
           <div className="mt-10">
-            <Button
-              variant="default"
-              size="lg"
-              className="py-6 px-10 shadow-xl transition bg-black text-white hover:scale-105 hover:bg-neutral-900 hover:cursor-pointer"
+            <Link
+              href="https://docs.google.com/forms/d/e/1FAIpQLSddBd6WxgemGVC9h9mDuEjA8kCFNQeoKJysiiWn6sLfroxL8w/viewform?pli=1"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Inscríbete Ahora
-            </Button>
+              <Button
+                variant="default"
+                size="lg"
+                className="py-6 px-10 shadow-xl bg-black text-white transition hover:scale-105 hover:bg-neutral-900 hover:cursor-pointer"
+              >
+                Inscríbete Ahora
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
