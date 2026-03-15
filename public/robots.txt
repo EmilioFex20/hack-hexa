@@ -13,4 +13,4 @@ User-agent: Googlebot
 Disallow:
 
 # Sitemap location
-Sitemap: https://ingeniocetys.foxcoding.com.mx/sitemap.xml
+Sitemap: https://hachexa.foxcoding.com.mx/sitemap.xml
