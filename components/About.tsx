@@ -4,7 +4,7 @@ export function About() {
   return (
     <section
       id="about"
-      className="relative min-h-screen w-full overflow-hidden py-20 md:py-28"
+      className="relative w-full overflow-hidden py-20 md:py-28"
     >
       <div className="flex flex-col xl:flex-row mx-auto w-5/6 items-center gap-14">
         {/* Columna izquierda */}
@@ -51,7 +51,7 @@ export function About() {
         {/* Columna derecha */}
         <div className="relative xl:w-1/2">
           {/* Círculo decorativo superior */}
-          <div className="absolute -left-6 -top-8 h-28 w-28 rounded-full bg-pink-200/60 md:h-40 md:w-40" />
+          <div className="absolute -left-6 -top-8 h-28 w-28 rounded-full bg-pink-200/60 md:h-40 md:w-40 opacity-50 z-10" />
 
           {/* Imagen */}
           <div className="relative overflow-hidden rounded-[2rem] shadow-lg">
@@ -65,7 +65,7 @@ export function About() {
           </div>
 
           {/* Círculo decorativo inferior derecho */}
-          <div className="absolute -bottom-8 -right-6 h-28 w-28 rounded-full bg-[#d3a2b7] md:h-32 md:w-32" />
+          <div className="absolute -bottom-8 -right-6 h-28 w-28 rounded-full bg-[#d3a2b7] md:h-32 md:w-32 opacity-50" />
         </div>
       </div>
     </section>
