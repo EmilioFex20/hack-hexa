@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Search, Lightbulb, Star } from "lucide-react";
 
 export function Mission() {
   return (
@@ -6,7 +7,7 @@ export function Mission() {
       id="mission"
       className="relative w-full overflow-hidden py-20 md:py-28 bg-gradient-to-b from-white to-[#fecad4]/20"
     >
-      <div className="flex flex-col mx-auto w-5/6 items-center gap-14 ">
+      <div className="flex flex-col mx-auto w-5/6 items-center gap-14">
         <h2 className="text-2xl font-bold tracking-tight text-black md:text-5xl text-center">
           Tres Momentos, Una Experiencia Integral
         </h2>
@@ -19,7 +20,9 @@ export function Mission() {
         <div className="flex flex-col md:flex-row items-center gap-16">
           <div className="flex flex-col gap-4 w-full md:w-1/2">
             <div className="flex flex-row items-center gap-4">
-              <div className="rounded-full bg-[rgb(203,128,158)] w-16 h-16" />
+              <div className="rounded-full bg-[rgb(203,128,158)] w-16 h-16 text-center">
+                <Search className="w-10 h-10 text-white mx-auto my-3" />
+              </div>
               <h2 className="text-3xl font-bold tracking-tight text-black md:text-5xl text-center">
                 Explorar
               </h2>
@@ -29,18 +32,18 @@ export function Mission() {
               tecnología, romper primeras barreras y despertar interés.
             </p>
           </div>
-          <div className="flex-col rounded-4xl overflow-clip w-full md:w-1/2 drop-shadow-2xl">
-            <div className="flex-row flex justify-center bg-[oklch(0.985_0.002_247.839)] overflow-clip">
+          <div className="flex-col rounded-4xl overflow-clip w-full md:w-1/2 shadow-lg">
+            <div className="flex-row flex justify-center bg-[oklch(0.985_0.002_247.839)] overflow-hidden">
               <Image
                 src="/gracehopper.png"
                 alt="Grace Hopper"
                 width={500}
                 height={500}
-                className="h-[350px] w-auto hover:scale-110 transition"
+                className="h-full md:h-[500px] w-full hover:scale-110 transition"
               />
             </div>
             <div className="border-t-4 border-[rgb(203,128,158)] bg-white/95  p-4">
-              <p className="text-sm leading-relaxed text-neutral-600 md:text-xl text-left">
+              <p className="text-sm leading-relaxed text-neutral-600 md:text-xl text-center">
                 Grace Hopper - Pionera de la programación y creadora del primer
                 compilador
               </p>
@@ -52,7 +55,9 @@ export function Mission() {
         <div className="flex flex-col md:flex-row-reverse items-center gap-16">
           <div className="flex flex-col gap-4 w-full md:w-1/2">
             <div className="flex flex-row items-center gap-4">
-              <div className="rounded-full bg-[rgb(203,128,158)] w-16 h-16" />
+              <div className="rounded-full bg-[rgb(203,128,158)] w-16 h-16" >
+                <Lightbulb className="w-10 h-10 text-white mx-auto my-3" />
+              </div>
               <h2 className="text-3xl font-bold tracking-tight text-black md:text-5xl text-center">
                 Experimentar
               </h2>
@@ -64,17 +69,17 @@ export function Mission() {
             </p>
           </div>
           <div className="flex-col rounded-4xl overflow-clip w-full md:w-1/2 drop-shadow-2xl">
-            <div className="flex-row flex justify-center bg-[oklch(0.985_0.002_247.839)]">
+            <div className="flex-row flex justify-center bg-[oklch(0.985_0.002_247.839)] overflow-hidden">
               <Image
                 src="/participantes-trabajando.png"
                 alt="Grace Hopper"
                 width={500}
                 height={500}
-                className="h-[350px] w-auto hover:scale-110 transition"
+                className="h-full w-full hover:scale-110 transition"
               />
             </div>
             <div className="border-t-4 border-[rgb(203,128,158)] bg-white/95  p-4">
-              <p className="text-sm leading-relaxed text-neutral-600 md:text-xl text-left">
+              <p className="text-sm leading-relaxed text-neutral-600 md:text-xl text-center">
                 Participantes trabajando en equipos colaborativos
               </p>
             </div>
@@ -85,7 +90,9 @@ export function Mission() {
         <div className="flex flex-col md:flex-row items-center gap-16">
           <div className="flex flex-col gap-4 w-full md:w-1/2">
             <div className="flex flex-row items-center gap-4">
-              <div className="rounded-full bg-[rgb(203,128,158)] w-16 h-16" />
+              <div className="rounded-full bg-[rgb(203,128,158)] w-16 h-16" >
+                <Star className="w-10 h-10 text-white mx-auto my-3" />
+              </div>
               <h2 className="text-3xl font-bold tracking-tight text-black md:text-5xl text-center">
                 Inspirar
               </h2>
@@ -97,17 +104,17 @@ export function Mission() {
             </p>
           </div>
           <div className="flex-col rounded-4xl overflow-clip w-full md:w-1/2 drop-shadow-2xl">
-            <div className="flex-row flex justify-center bg-[oklch(0.985_0.002_247.839)]">
+            <div className="flex-row flex justify-center bg-[oklch(0.985_0.002_247.839)] overflow-hidden">
               <Image
                 src="/mujeres-comp.png"
                 alt="Grace Hopper"
                 width={500}
                 height={500}
-                className="h-[350px] w-auto hover:scale-110 transition"
+                className="h-full w-full hover:scale-110 transition"
               />
             </div>
             <div className="border-t-4 border-[rgb(203,128,158)] bg-white/95  p-4">
-              <p className="text-sm leading-relaxed text-neutral-600 md:text-xl text-left">
+              <p className="text-sm leading-relaxed text-neutral-600 md:text-xl text-center">
                 Mujeres compartiendo sus experiencias en tecnología
               </p>
             </div>
