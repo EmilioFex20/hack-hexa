@@ -1,125 +1,103 @@
 import Image from "next/image";
 import { Search, Lightbulb, Star } from "lucide-react";
 
+const moments = [
+  {
+    icon: Search,
+    title: "Explorar",
+    description:
+      "Platica introductoria para conocer el papel de las mujeres en la tecnologia, romper primeras barreras y despertar interes.",
+    image: "/gracehopper.png",
+    imageAlt: "Grace Hopper - Pionera de la programacion",
+    caption:
+      "Grace Hopper - Pionera de la programacion y creadora del primer compilador",
+    reverse: false,
+  },
+  {
+    icon: Lightbulb,
+    title: "Experimentar",
+    description:
+      "Rally de resolucion de problemas y visita a laboratorios, donde las participantes trabajan en equipo, enfrentan retos de logica y conocen aplicaciones reales de la ingenieria.",
+    image: "/participantes-trabajando.png",
+    imageAlt: "Participantes trabajando en equipos colaborativos",
+    caption: "Participantes trabajando en equipos colaborativos",
+    reverse: true,
+  },
+  {
+    icon: Star,
+    title: "Inspirar",
+    description:
+      "Panel de egresadas y mujeres actualmente en la industria, junto con videos testimoniales que muestran caminos profesionales posibles y cercanos.",
+    image: "/mujeres-comp.png",
+    imageAlt: "Mujeres compartiendo sus experiencias en tecnologia",
+    caption: "Mujeres compartiendo sus experiencias en tecnologia",
+    reverse: false,
+  },
+];
+
 export function Mission() {
   return (
     <section
-      id="mission"
-      className="relative w-full overflow-hidden py-20 md:py-28 bg-gradient-to-b from-white to-[#fecad4]/20"
+      id="experiencia"
+      className="relative w-full overflow-hidden bg-gradient-to-b from-white to-pink-50/50 py-16 sm:py-20 md:py-28"
     >
-      <div className="flex flex-col mx-auto w-5/6 items-center gap-14">
-        <h2 className="text-2xl font-bold tracking-tight text-black md:text-5xl text-center">
-          Tres Momentos, Una Experiencia Integral
-        </h2>
-        <p className="text-lg leading-relaxed text-neutral-600 md:text-xl text-center">
-          HackHexa se organiza en tres momentos que construyen una experiencia
-          completa de aprendizaje, colaboración e inspiración.
-        </p>
-
-        {/* foto 1*/}
-        <div className="flex flex-col md:flex-row items-center gap-16">
-          <div className="flex flex-col gap-4 w-full md:w-1/2">
-            <div className="flex flex-row items-center gap-4">
-              <div className="rounded-full bg-[rgb(203,128,158)] w-16 h-16 text-center">
-                <Search className="w-10 h-10 text-white mx-auto my-3" />
-              </div>
-              <h2 className="text-3xl font-bold tracking-tight text-black md:text-5xl text-center">
-                Explorar
-              </h2>
-            </div>
-            <p className="text-lg leading-relaxed text-neutral-600 md:text-xl text-left">
-              Plática introductoria para conocer el papel de las mujeres en la
-              tecnología, romper primeras barreras y despertar interés.
-            </p>
-          </div>
-          <div className="flex-col rounded-4xl overflow-clip w-full md:w-1/2 shadow-lg">
-            <div className="flex-row flex justify-center bg-[oklch(0.985_0.002_247.839)] overflow-hidden">
-              <Image
-                src="/gracehopper.png"
-                alt="Grace Hopper"
-                width={500}
-                height={500}
-                className="h-full md:h-[500px] w-full hover:scale-110 transition"
-              />
-            </div>
-            <div className="border-t-4 border-[rgb(203,128,158)] bg-white/95  p-4">
-              <p className="text-sm leading-relaxed text-neutral-600 md:text-xl text-center">
-                Grace Hopper - Pionera de la programación y creadora del primer
-                compilador
-              </p>
-            </div>
-          </div>
+      <div className="mx-auto flex w-11/12 max-w-7xl flex-col items-center gap-12 sm:gap-16 md:gap-20">
+        {/* Header */}
+        <div className="max-w-3xl text-center">
+          <h2 className="text-balance text-2xl font-bold tracking-tight text-black sm:text-3xl md:text-4xl lg:text-5xl">
+            Tres Momentos, Una Experiencia Integral
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-neutral-600 sm:mt-6 sm:text-lg md:text-xl">
+            HackHexa se organiza en tres momentos que construyen una experiencia
+            completa de aprendizaje, colaboracion e inspiracion.
+          </p>
         </div>
 
-        {/* foto 2*/}
-        <div className="flex flex-col md:flex-row-reverse items-center gap-16">
-          <div className="flex flex-col gap-4 w-full md:w-1/2">
-            <div className="flex flex-row items-center gap-4">
-              <div className="rounded-full bg-[rgb(203,128,158)] w-16 h-16" >
-                <Lightbulb className="w-10 h-10 text-white mx-auto my-3" />
+        {/* Moments */}
+        {moments.map((moment, index) => {
+          const Icon = moment.icon;
+          return (
+            <div
+              key={index}
+              className={`flex w-full flex-col items-center gap-8 sm:gap-12 md:gap-16 ${
+                moment.reverse ? "md:flex-row-reverse" : "md:flex-row"
+              }`}
+            >
+              {/* Text content */}
+              <div className="flex w-full flex-col gap-4 md:w-1/2">
+                <div className="flex flex-row items-center gap-3 sm:gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand sm:h-14 sm:w-14 md:h-16 md:w-16">
+                    <Icon className="h-6 w-6 text-white sm:h-7 sm:w-7 md:h-8 md:w-8" />
+                  </div>
+                  <h3 className="text-2xl font-bold tracking-tight text-black sm:text-3xl md:text-4xl lg:text-5xl">
+                    {moment.title}
+                  </h3>
+                </div>
+                <p className="text-base leading-relaxed text-neutral-600 sm:text-lg md:text-xl">
+                  {moment.description}
+                </p>
               </div>
-              <h2 className="text-3xl font-bold tracking-tight text-black md:text-5xl text-center">
-                Experimentar
-              </h2>
-            </div>
-            <p className="text-lg leading-relaxed text-neutral-600 md:text-xl text-left">
-              Rally de resolución de problemas y visita a laboratorios, donde
-              las participantes trabajan en equipo, enfrentan retos de lógica y
-              conocen aplicaciones reales de la ingeniería.
-            </p>
-          </div>
-          <div className="flex-col rounded-4xl overflow-clip w-full md:w-1/2 drop-shadow-2xl">
-            <div className="flex-row flex justify-center bg-[oklch(0.985_0.002_247.839)] overflow-hidden">
-              <Image
-                src="/participantes-trabajando.png"
-                alt="Grace Hopper"
-                width={500}
-                height={500}
-                className="h-full w-full hover:scale-110 transition"
-              />
-            </div>
-            <div className="border-t-4 border-[rgb(203,128,158)] bg-white/95  p-4">
-              <p className="text-sm leading-relaxed text-neutral-600 md:text-xl text-center">
-                Participantes trabajando en equipos colaborativos
-              </p>
-            </div>
-          </div>
-        </div>
 
-        {/* foto 3*/}
-        <div className="flex flex-col md:flex-row items-center gap-16">
-          <div className="flex flex-col gap-4 w-full md:w-1/2">
-            <div className="flex flex-row items-center gap-4">
-              <div className="rounded-full bg-[rgb(203,128,158)] w-16 h-16" >
-                <Star className="w-10 h-10 text-white mx-auto my-3" />
+              {/* Image card */}
+              <div className="w-full overflow-hidden rounded-2xl shadow-xl sm:rounded-3xl md:w-1/2">
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100">
+                  <Image
+                    src={moment.image}
+                    alt={moment.imageAlt}
+                    fill
+                    className="object-cover transition-transform duration-300 hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                <div className="border-t-4 border-brand bg-white p-4 sm:p-5">
+                  <p className="text-center text-sm leading-relaxed text-neutral-600 sm:text-base md:text-lg">
+                    {moment.caption}
+                  </p>
+                </div>
               </div>
-              <h2 className="text-3xl font-bold tracking-tight text-black md:text-5xl text-center">
-                Inspirar
-              </h2>
             </div>
-            <p className="text-lg leading-relaxed text-neutral-600 md:text-xl text-left">
-              Panel de egresadas y mujeres actualmente en la industria, junto
-              con videos testimoniales que muestran caminos profesionales
-              posibles y cercanos.
-            </p>
-          </div>
-          <div className="flex-col rounded-4xl overflow-clip w-full md:w-1/2 drop-shadow-2xl">
-            <div className="flex-row flex justify-center bg-[oklch(0.985_0.002_247.839)] overflow-hidden">
-              <Image
-                src="/mujeres-comp.png"
-                alt="Grace Hopper"
-                width={500}
-                height={500}
-                className="h-full w-full hover:scale-110 transition"
-              />
-            </div>
-            <div className="border-t-4 border-[rgb(203,128,158)] bg-white/95  p-4">
-              <p className="text-sm leading-relaxed text-neutral-600 md:text-xl text-center">
-                Mujeres compartiendo sus experiencias en tecnología
-              </p>
-            </div>
-          </div>
-        </div>
+          );
+        })}
       </div>
     </section>
   );
