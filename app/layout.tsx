@@ -28,11 +28,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("font-sans", inter.variable)}>
-      <body className={`antialiased`}>
-        {" "}
+    <html lang="es" className={cn("font-sans", inter.variable)}>
+      <body className="flex min-h-screen flex-col antialiased">
         <main className="flex-1">{children}</main>
-        <div className="h-10" />
         <Footer />
       </body>
     </html>

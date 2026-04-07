@@ -2,98 +2,117 @@ import { UserRound, UsersRound, MapPin, Mail, Handshake } from "lucide-react";
 
 const audienceCards = [
   {
-    icon: <UserRound className="h-7 w-7 text-[#c97f9c]" strokeWidth={2} />,
+    icon: UserRound,
     text: "Alumnas de 4to y 6to semestre de preparatoria",
   },
   {
-    icon: <UserRound className="h-7 w-7 text-[#c97f9c]" strokeWidth={2} />,
+    icon: UserRound,
     text: "Estudiantes de primeros semestres de universidad",
   },
   {
-    icon: <UserRound className="h-7 w-7 text-[#c97f9c]" strokeWidth={2} />,
-    text: "Mujeres jóvenes interesadas en tecnología e ingeniería",
+    icon: UserRound,
+    text: "Mujeres jovenes interesadas en tecnologia e ingenieria",
   },
 ];
 
 const eventInfo = [
   {
-    icon: <UsersRound className="h-7 w-7 text-white" strokeWidth={2} />,
+    icon: UsersRound,
     title: "Capacidad Limitada",
     description:
       "Plazas limitadas para garantizar una experiencia personalizada y de alta calidad.",
+    variant: "pink" as const,
   },
   {
-    icon: <MapPin className="h-7 w-7 text-black" strokeWidth={2} />,
-    title: "Ubicación",
+    icon: MapPin,
+    title: "Ubicacion",
     description:
-      "Sala Gallegos - El evento se realizará en nuestras instalaciones con laboratorios de última generación.",
+      "Sala Gallegos - El evento se realizara en nuestras instalaciones con laboratorios de ultima generacion.",
+    variant: "light" as const,
   },
   {
-    icon: <Mail className="h-7 w-7 text-white" strokeWidth={2} />,
+    icon: Mail,
     title: "Sin Costo",
     description:
       "El evento es completamente gratuito, solo necesitas registrarte.",
+    variant: "pink" as const,
   },
   {
-    icon: <Handshake className="h-7 w-7 text-black" strokeWidth={2} />,
+    icon: Handshake,
     title: "Trabajo en Equipo",
     description:
-      "Actividades colaborativas diseñadas para crear redes de apoyo.",
+      "Actividades colaborativas disenadas para crear redes de apoyo.",
+    variant: "light" as const,
   },
 ];
 
 export function Information() {
   return (
-    <section className="w-full bg-[#f5f5f5] py-14 md:py-20">
-      <div className="mx-auto flex w-[92%] max-w-7xl flex-col gap-14 md:gap-20">
+    <section
+      id="informacion"
+      className="w-full bg-neutral-50 py-14 sm:py-16 md:py-20 lg:py-24"
+    >
+      <div className="mx-auto flex w-11/12 max-w-7xl flex-col gap-14 sm:gap-16 md:gap-20">
         {/* ¿Para quién es? */}
-        <div className="flex flex-col gap-8 md:gap-10">
-          <h2 className="text-center text-3xl font-bold text-black md:text-5xl">
-            ¿Para Quién es HackHexa?
+        <div className="flex flex-col gap-8 sm:gap-10 md:gap-12">
+          <h2 className="text-balance text-center text-2xl font-bold text-black sm:text-3xl md:text-4xl lg:text-5xl">
+            ¿Para Quien es HackHexa?
           </h2>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            {audienceCards.map((card, index) => (
-              <article
-                key={index}
-                className="rounded-[28px] bg-[#ead2db] px-10 pb-10 pt-8 shadow-xl text-center"
-              >
-                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-md mx-auto">
-                  {card.icon}
-                </div>
-                <p className="text-lg font-medium text-black md:text-xl text-center">
-                  {card.text}
-                </p>
-              </article>
-            ))}
+          <div className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-3 md:gap-8">
+            {audienceCards.map((card, index) => {
+              const Icon = card.icon;
+              return (
+                <article
+                  key={index}
+                  className="flex flex-col items-center rounded-2xl bg-pink-100/80 px-6 py-8 text-center shadow-lg transition-transform duration-200 hover:-translate-y-1 sm:rounded-3xl sm:px-8 sm:py-10 md:px-10 md:py-12"
+                >
+                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md sm:mb-6 sm:h-16 sm:w-16">
+                    <Icon
+                      className="h-6 w-6 text-brand sm:h-7 sm:w-7"
+                      strokeWidth={2}
+                    />
+                  </div>
+                  <p className="text-base font-medium leading-relaxed text-neutral-800 sm:text-lg md:text-xl">
+                    {card.text}
+                  </p>
+                </article>
+              );
+            })}
           </div>
         </div>
 
         {/* Información del Evento */}
-        <div className="rounded-[32px] bg-black px-8 py-12 text-white shadow-[0_12px_30px_rgba(0,0,0,0.18)] md:px-14 md:py-16">
-          <h2 className="mb-12 text-center text-3xl font-bold md:text-5xl">
-            Información del Evento
+        <div className="rounded-2xl bg-neutral-900 px-6 py-10 text-white shadow-2xl sm:rounded-3xl sm:px-10 sm:py-12 md:px-14 md:py-16">
+          <h2 className="mb-10 text-balance text-center text-2xl font-bold sm:mb-12 sm:text-3xl md:text-4xl lg:text-5xl">
+            Informacion del Evento
           </h2>
 
-          <div className="grid grid-cols-1 gap-x-16 gap-y-12 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-8 sm:gap-10 md:grid-cols-2 md:gap-x-12 md:gap-y-10 lg:gap-x-16">
             {eventInfo.map((item, index) => {
-              const pinkIcon = index === 0 || index === 2;
+              const Icon = item.icon;
+              const isPink = item.variant === "pink";
 
               return (
-                <div key={index} className="flex items-start gap-5">
+                <div key={index} className="flex items-start gap-4 sm:gap-5">
                   <div
-                    className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-full ${
-                      pinkIcon ? "bg-[#d98faf]" : "bg-[#f4c9d6]"
+                    className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full sm:h-14 sm:w-14 md:h-16 md:w-16 ${
+                      isPink ? "bg-brand" : "bg-pink-200"
                     }`}
                   >
-                    {item.icon}
+                    <Icon
+                      className={`h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 ${
+                        isPink ? "text-white" : "text-neutral-800"
+                      }`}
+                      strokeWidth={2}
+                    />
                   </div>
 
-                  <div className="space-y-2">
-                    <h3 className="text-2xl font-bold md:text-3xl">
+                  <div className="space-y-1 sm:space-y-2">
+                    <h3 className="text-xl font-bold sm:text-2xl md:text-3xl">
                       {item.title}
                     </h3>
-                    <p className="max-w-[480px] text-lg text-white/95 md:text-xl">
+                    <p className="max-w-md text-base leading-relaxed text-white/90 sm:text-lg md:text-xl">
                       {item.description}
                     </p>
                   </div>
