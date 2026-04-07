@@ -2,23 +2,23 @@ import Image from "next/image";
 
 const sponsors = [
   {
-    name: "Steam Acres",
-    src: "/sponsors/steam-acres.png",
-    alt: "Logo de Steam Acres",
+    name: "Steam 4 Girls by Creative Labs",
+    src: "/sponsors/steam-4-girls.jpeg",
+    alt: "Logo de Steam 4 Girls by Creative Labs",
   },
   {
     name: "Pacha Mama del Desierto",
-    src: "/sponsors/pacha-mama.png",
+    src: "/sponsors/pacha-mama.jpeg",
     alt: "Logo de Pacha Mama del Desierto",
   },
   {
     name: "AVA Spa",
-    src: "/sponsors/ava-spa.png",
+    src: "/sponsors/ava-spa.jpeg",
     alt: "Logo de AVA Spa",
   },
   {
     name: "Major League Hacking",
-    src: "/sponsors/mlh.png",
+    src: "/sponsors/mlh.jpg",
     alt: "Logo de Major League Hacking",
   },
 ];
@@ -54,7 +54,7 @@ export function Sponsors() {
                   src={sponsor.src}
                   alt={sponsor.alt}
                   fill
-                  className="object-contain"
+                  className="object-contain rounded-full"
                   sizes="(max-width: 640px) 80px, (max-width: 768px) 96px, (max-width: 1024px) 112px, 128px"
                 />
               </div>
