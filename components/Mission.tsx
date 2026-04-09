@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Search, Lightbulb, Star } from "lucide-react";
+import { Reveal } from "./reveal";
 
 const moments = [
   {
@@ -43,7 +44,7 @@ export function Mission() {
     >
       <div className="mx-auto flex w-11/12 max-w-7xl flex-col items-center gap-12 sm:gap-16 md:gap-20">
         {/* Header */}
-        <div className="max-w-3xl text-center">
+        <Reveal className="max-w-3xl text-center mb-28">
           <h2 className="text-balance text-2xl font-bold tracking-tight text-black sm:text-3xl md:text-4xl lg:text-5xl">
             Tres Momentos, Una Experiencia Integral
           </h2>
@@ -51,7 +52,7 @@ export function Mission() {
             HackHexa se organiza en tres momentos que construyen una experiencia
             completa de aprendizaje, colaboracion e inspiracion.
           </p>
-        </div>
+        </Reveal>
 
         {/* Moments */}
         {moments.map((moment, index) => {
@@ -64,7 +65,10 @@ export function Mission() {
               }`}
             >
               {/* Text content */}
-              <div className="flex w-full flex-col gap-4 md:w-1/2">
+              <Reveal
+                className="flex w-full flex-col gap-4 md:w-1/2"
+                delay={240}
+              >
                 <div className="flex flex-row items-center gap-3 sm:gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand sm:h-14 sm:w-14 md:h-16 md:w-16">
                     <Icon className="h-6 w-6 text-white sm:h-7 sm:w-7 md:h-8 md:w-8" />
@@ -76,16 +80,23 @@ export function Mission() {
                 <p className="text-base leading-relaxed text-neutral-600 sm:text-lg md:text-xl">
                   {moment.description}
                 </p>
-              </div>
+              </Reveal>
 
               {/* Image card */}
-              <div className="w-full overflow-hidden rounded-2xl shadow-xl sm:rounded-3xl md:w-1/2">
+              <Reveal
+                className="w-full overflow-hidden rounded-2xl shadow-xl sm:rounded-3xl md:w-1/2"
+                delay={480}
+              >
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100">
                   <Image
                     src={moment.image}
                     alt={moment.imageAlt}
                     fill
-                    className="object-cover transition-transform duration-300 hover:scale-105"
+                    className={`transition-transform duration-300 hover:scale-105 ${
+                      moment.image === "/gracehopper.png"
+                        ? "object-cover object-[center_1%] "
+                        : "object-cover"
+                    }`}
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
@@ -94,7 +105,7 @@ export function Mission() {
                     {moment.caption}
                   </p>
                 </div>
-              </div>
+              </Reveal>
             </div>
           );
         })}

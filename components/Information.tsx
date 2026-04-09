@@ -1,4 +1,5 @@
 import { UserRound, UsersRound, MapPin, Mail, Handshake } from "lucide-react";
+import { Reveal } from "./reveal";
 
 const audienceCards = [
   {
@@ -47,6 +48,7 @@ const eventInfo = [
 ];
 
 export function Information() {
+  const delayStep = 360;
   return (
     <section
       id="informacion"
@@ -55,28 +57,29 @@ export function Information() {
       <div className="mx-auto flex w-11/12 max-w-7xl flex-col gap-14 sm:gap-16 md:gap-20">
         {/* ¿Para quién es? */}
         <div className="flex flex-col gap-8 sm:gap-10 md:gap-12">
-          <h2 className="text-balance text-center text-2xl font-bold text-black sm:text-3xl md:text-4xl lg:text-5xl">
-            ¿Para Quien es HackHexa?
-          </h2>
+          <Reveal>
+            <h2 className="text-balance text-center text-2xl font-bold text-black sm:text-3xl md:text-4xl lg:text-5xl mb-6">
+              ¿Para Quien es HackHexa?
+            </h2>
+          </Reveal>
 
           <div className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-3 md:gap-8">
             {audienceCards.map((card, index) => {
               const Icon = card.icon;
               return (
-                <article
-                  key={index}
-                  className="flex flex-col items-center rounded-2xl bg-pink-100/80 px-6 py-8 text-center shadow-lg transition-transform duration-200 hover:-translate-y-1 sm:rounded-3xl sm:px-8 sm:py-10 md:px-10 md:py-12"
-                >
-                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md sm:mb-6 sm:h-16 sm:w-16">
-                    <Icon
-                      className="h-6 w-6 text-brand sm:h-7 sm:w-7"
-                      strokeWidth={2}
-                    />
-                  </div>
-                  <p className="text-base font-medium leading-relaxed text-neutral-800 sm:text-lg md:text-xl">
-                    {card.text}
-                  </p>
-                </article>
+                <Reveal key={index} delay={delayStep * index}>
+                  <article className="flex flex-col items-center rounded-2xl bg-pink-100/80 px-6 py-8 text-center shadow-lg transition-transform duration-200 hover:-translate-y-1 sm:rounded-3xl sm:px-8 sm:py-10 md:px-10 md:py-12">
+                    <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md sm:mb-6 sm:h-16 sm:w-16">
+                      <Icon
+                        className="h-6 w-6 text-brand sm:h-7 sm:w-7"
+                        strokeWidth={2}
+                      />
+                    </div>
+                    <p className="text-base font-medium leading-relaxed text-neutral-800 sm:text-lg md:text-xl">
+                      {card.text}
+                    </p>
+                  </article>
+                </Reveal>
               );
             })}
           </div>
